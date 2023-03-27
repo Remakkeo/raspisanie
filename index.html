@@ -3,12 +3,12 @@
 <head>
 	<title>Расписание дня</title>
 	<style>
+		/* стили таблицы и колонок */
 		table {
 			border-collapse: collapse;
 			width: 100%;
 			margin-bottom: 10px;
 		}
-
 		th {
 			background-color: #ddd;
 			font-weight: bold;
@@ -16,20 +16,17 @@
 			text-align: center;
 			border: 1px solid #ccc;
 		}
-
 		td {
 			padding: 8px;
 			text-align: center;
 			border: 1px solid #ccc;
 		}
-
 		.column {
 			float: left;
-			width: 16%;
+			width: 14.28%; /* одна седьмая ширины родительского элемента */
 			padding: 10px;
 			box-sizing: border-box;
 		}
-
 		.clearfix::after {
 			content: "";
 			clear: both;
@@ -38,84 +35,112 @@
 	</style>
 </head>
 <body>
-	<div class="column">
-		<table>
-			<tr>
-				<th>Понедельник</th>
-			</tr>
-			<tr>
-				<td>Кукушка</td>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-            <tr>
-				<td>14:30-15:30  Английский</td>
-			</tr>
-		</table>
+	<div class="clearfix">
+		<div class="column">
+			<table>
+				<tr>
+					<th>Понедельник</th>
+				</tr>
+				<tr>
+					<td id="monday" onclick="editCell('monday')">Утренняя зарядка</td>
+				</tr>
+				<tr>
+					<td id="monday2" onclick="editCell('monday2')">Английский язык</td>
+				</tr>
+			</table>
+		</div>
+		<div class="column">
+			<table>
+				<tr>
+					<th>Вторник</th>
+				</tr>
+				<tr>
+					<td id="tuesday" onclick="editCell('tuesday')">Математика</td>
+				</tr>
+				<tr>
+					<td id="tuesday2" onclick="editCell('tuesday2')">Физика</td>
+				</tr>
+			</table>
+		</div>
+		<div class="column">
+			<table>
+				<tr>
+					<th>Среда</th>
+				</tr>
+				<tr>
+					<td id="wednesday" onclick="editCell('wednesday')">Информатика</td>
+				</tr>
+				<tr>
+					<td id="wednesday2" onclick="editCell('wednesday2')">История</td>
+				</tr>
+			</table>
+		</div>
+		<div class="column">
+			<table>
+				<tr>
+					<th>Четверг</th>
+				</tr>
+				<tr>
+					<td id="thursday" onclick="editCell('thursday')">Химия</td>
+				</tr>
+				<tr>
+					<td id="thursday2" onclick="editCell('thursday2')">Литература</td>
+				</tr>
+			</table>
+		</div>
+		<div class="column">
+			<table>
+				<tr>
+					<th>Пятница</th>
+				</tr>
+				<tr>
+
+<td id="friday" onclick="editCell('friday')">Русский язык</td>
+				</tr>
+				<tr>
+					<td id="friday2" onclick="editCell('friday2')">Музыка</td>
+				</tr>
+			</table>
+		</div>
+		<div class="column">
+			<table>
+				<tr>
+					<th>Суббота</th>
+				</tr>
+				<tr>
+					<td id="saturday" onclick="editCell('saturday')">Биология</td>
+				</tr>
+				<tr>
+					<td id="saturday2" onclick="editCell('saturday2')">Физкультура</td>
+				</tr>
+			</table>
+		</div>
+		<div class="column">
+			<table>
+				<tr>
+					<th>Воскресенье</th>
+				</tr>
+				<tr>
+					<td id="sunday" onclick="editCell('sunday')">Отдых</td>
+				</tr>
+				<tr>
+					<td id="sunday2" onclick="editCell('sunday2')">Отдых</td>
+				</tr>
+			</table>
+		</div>
 	</div>
-	<div class="column">
-		<table>
-			<tr>
-				<th>Вторник</th>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-		</table>
-	</div>
-	<div class="column">
-		<table>
-			<tr>
-				<th>Среда</th>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-		</table>
-	</div>
-	<div class="column">
-		<table>
-			<tr>
-				<th>Четверг</th>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-		</table>
-	</div>
-	<div class="column">
-		<table>
-			<tr>
-				<th>Пятница</th>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-		</table>
-	</div>
-	<div class="column">
-		<table>
-			<tr>
-				<th>Суббота</th>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td>1</td>
-			</tr>
-		</table>
 	
+	<script>
+		// функция для редактирования содержимого ячейки
+		function editCell(cellId) {
+			var cell = document.getElementById(cellId);
+			var currentValue = cell.innerHTML;
+			var newValue = prompt("Введите новое значение", currentValue);
+			if (newValue !== null) {
+				cell.innerHTML = newValue;
+			}
+		}
+	</script>
+	
+</body>
+</html>
